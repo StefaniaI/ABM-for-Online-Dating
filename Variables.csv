@@ -1,0 +1,50 @@
+﻿Code name for variable,Value,Variable description,Alternative posibilities,Class where used
+no_bias,1,the number of protected characteristics,,Attributes
+no_matching_searchable,1,the number of matching & searchable attributes (that are not protected),,Attributes
+no_matching_experiential,1,the number of matching & experiential attributes (that are not protected),,Attributes
+no_competing_searchable,1,the number of competing & searchable attributes (that are not protected),,Attributes
+no_competing_experiential,1,the number of competing & experiential attributes (that are not protected),,Attributes
+is_bias_searchable,1,whether the protected attribute can be observed in the online phase,,Attributes
+is_bias_matching,1,do people want others with similar protected characteristics to themselves?,if 0 then all prefer bias characteristics of 1 (i.e. the protected characteristics are competing),Attributes
+beta,0.4,correlation level between the bias and non-bias attributes,,Attributes
+gamma,0.2,correlation level between the value of matching and competing attributes ,,Attributes
+gamma_e,0.2,"correlation level among the competing attributes, , for paper = gamma",,Attributes
+gamma_c,0.2,"correlation level among the matching attributes,  for paper = gamma",,Attributes
+p_negativity,0.25,chance that an individual perceives an individaul from a different bias group as having one given characteristic negative. (used during sampling),,Attributes
+orientation_types,"[0, 1]","for now equivalent with genders, each interested in the other",put below one row for each type of gender,Orientation
+interests_0,[1],interests of each type (here type 0 is interested only in type 1),,Orientation
+interests_1,[0],interests of each type (here type 1 is interested only in type 0),,Orientation
+prob_types,"[0.5, 0.5]",the denisty function for type distribution (here equal probability for each gender),,Orientation
+filter,non_bias_WEAK,filter strategy of the agent for the most important searchng attribute OFF/(non_bias_)WEAK/(non_bias_)STRONG,,Agent
+sort,OFF,sorting strategy of the agent OFF/BY NO/BY WEIGHT,BY NO -> by the number of mentioned serachable attributes that are perceived as good,Agent
+strength_update_sample,1,how much weight does it have a new observation,2-> one new obs weights twice as much as one before entering the platform,Agent
+strength_update_pref,0.02,how much do preferences go to the extreme after an interaction,"1-epsilon-> after an unsuccessfull interaction with a person with a competing characteristic of 1, the preference (level of caring) for that characteristic will be epsilon (do not put 1 here - memory exists)",Agent
+strength_update_norms,0.01,how much closer do prferences go twards the platform's norms after one interaction,1-> the agent will have a preference equal to the norm,Agent
+relative_importance_norms,0.2,relative importance of out platform norms when generating initial preferences of agents,1-> initial preferences of agents = out-platform norm ,Agent
+failure_tolerance,20,how many failed relationships is the agent tollerating before exiting the platform,,Agent
+bad_recommandation_tolerance,25,how many times in the searching phase can the agent not answer/send messages before exiting the platform,,Agent
+no_samples_same_bias_group,300,number of people in the same bias group sampled prior to entering the platform,,Agent
+no_samples_different_bias_group,100,number of people in different bias group sampled prior to entering the platform,,Agent
+sample_size,5000,the number of people sampled to get the true contingency table,,Agent
+initial_min_bias_pref,0,initial minimum preference on the bias attributes,= x -> w_0>= x,Agent
+prob_showing_on_profile,0.5,the probability that the agent will make a searchable attribute visible on their profile,,Agent
+attribute_importance,1,"when decidding whether or not to continue a relationship, how much more important are attributes compared to the time spent in a relationship",,Agent
+time_to_offline,7,number of iterations of a realtionship until it becomes offline,,Relationship
+time_to_long_term,37,number of iterations of a realtionship until it becomes long-term,,Relationship
+prob_learn_searchable,0.5,probability of the agent learning a previously unkonwn searchable characteristic,,Relationship
+prob_learn_experiential,0.5,"probability of the agent learning a previously unkonwn experiental characteristic (while in an offline state; while online, the agent cannot learn experiential attributes)",,Relationship
+prob_check_messages,0.5,probability of checking a message (vs. scrolling through recommandations),"1-> first read all messages, then go through recommandations",Platform
+no_steps_searching,30,the number of messages/profile considered in one turn while in the searchign phase,,Platform
+strenght_norm_update,0.05,percentage with which the norm get closer to the average preference,1-> norm becomes the average taste at each iteration,Platform
+no_iterations,2000,the number of iterations within each experiment,,Simulate_platform
+no_samples,20,the number of experiments ,,Simulate_platform
+random_seed,97,th random seed used for the simulation,,Simulate_platform
+initial_population_size,300,the number of agents initially on the platform,,Simulate_platform
+no_new_agents_per_iteration,4,the number of new agents entering the platform with each iteration,,Simulate_platform
+norm_out_bias_value,0.2,number between 0 and 1 showing the norms on the protected attribute,1-> norms say to give maximum importance to the protected attributes,Simulate_platform
+norm_intervention,0,"whether the intervention 3, on the on-platfrom norms is on or off",0-> off,Simulate_platform
+offset,0,To test robustness of decision function - value used throughout the paper is 0,,
+expansion,1,To test robustness of decision function - value used throughout the paper is 1,,
+sum_searchable,0.4,sum of searchable attributes,,
+prob_interact_offline,0.14,0.14 ->meet once every 7 iterations,,
+artificial_attribute,0,"1-> intervention: there is one artificial searchable maching attribute, un-correlated with any of the rest",,
